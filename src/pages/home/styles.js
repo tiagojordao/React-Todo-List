@@ -95,6 +95,12 @@ export const Container = styled.div`
           display: flex;
           justify-content: space-between;
           align-items: center;
+
+          header {
+            position: absolute;
+            top: -30px;
+            left: -20px;
+          }
         }
       }
     }
@@ -133,6 +139,13 @@ export const Container = styled.div`
           display: flex;
           justify-content: space-between;
           align-items: center;
+
+
+          header {
+            position: absolute;
+            top: -30px;
+            left: -20px;
+          }
         }
       }
     }
@@ -215,4 +228,12 @@ export const Container = styled.div`
     font-weight: bold;
     margin: 8px 0 4px 0;
   }
+`;
+
+export const Label = styled.span`
+  width: 10px;
+  height: 10px;
+  background: ${ props => props.color };
+  border-radius: 2px;
+  display: inline-block;
 `;

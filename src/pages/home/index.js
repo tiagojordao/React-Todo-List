@@ -4,7 +4,7 @@ import { MdCheck, MdDelete } from 'react-icons/md'
 
 import axios from 'axios';
 
-import { Container } from './styles';
+import { Container, Label } from './styles';
 
 function Home() {
   const [task, setTask] = useState('');
@@ -87,6 +87,9 @@ function Home() {
               {tarefa && tarefa.map(tarefa => tarefa.status === 'em_andamento' ?
                 <li key={tarefa.nome}>
                   <div className="todoBlock">
+                  <header>
+                    <Label color="blue" />
+                  </header>
                     <div>
                       <p>Tarefa:</p> {tarefa.task}<br/>
                       <p>Resp:</p> {tarefa.resp}
@@ -109,6 +112,9 @@ function Home() {
               {tarefa && tarefa.map(tarefa => tarefa.status === "done" ?
                 <li key={tarefa.nome}>
                   <div className="doneBlock">
+                    <header>
+                      <Label color="blue" />
+                    </header>
                     <div>
                       <p>Tarefa:</p> {tarefa.task}<br/>
                       <p>Responsavel:</p> {tarefa.resp}
