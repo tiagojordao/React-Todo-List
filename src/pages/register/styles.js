@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -10,7 +9,6 @@ export const Container = styled.div`
   .block {
     background: rgba(255,255,255, 0.3);
     height: 50%;
-    width: 30%;
     border-radius: 5px;
 
     display: flex;

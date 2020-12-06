@@ -20,16 +20,19 @@ export const Container = styled.div`
   }
 
   main {
+    /*
     display: flex;
     justify-content: center;
+    */
     height: 100%;
     margin-top: 32px;
 
     .toAdd {
       padding: 0 15px;
       height: 100%;
-      flex: 0 0 350px;
-
+      /*
+        flex: 0 0 350px;
+      */
       header {
         background: none;
         display: flex;
@@ -64,8 +67,9 @@ export const Container = styled.div`
     .todo {
       padding: 0 15px;
       height: 100%;
-      flex: 0 0 400px;
-
+      /*
+        flex: 0 0 400px;
+      */
       header {
         background: none;
         display: flex;
@@ -108,8 +112,9 @@ export const Container = styled.div`
     .done {
       padding: 0 15px;
       height: 100%;
-      flex: 0 0 400px;
-
+      /*
+        flex: 0 0 400px;
+      */
       header {
         background: none;
         display: flex;

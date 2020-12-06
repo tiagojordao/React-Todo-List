@@ -28,8 +28,8 @@ export default function Auth() {
   }
 
   return (
-    <Container>
-      <div className="block">
+    <Container className="w3-col">
+      <div className="block w3-third">
         <h2>Todo List Login</h2>
         <div className="login">
           <input id="email" type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>

@@ -12,7 +12,6 @@ function Home() {
 
   const[tarefa, setTarefa] = useState([{}]);
 
-
   async function handleSubmit () {
     var body = {
       task,
@@ -57,7 +56,7 @@ function Home() {
   };
 
   return (
-    <Container>
+    <Container className="w3-col">
       <header>
         <h1>Web Todo List</h1>
         {/* <div className="tabs">
@@ -68,7 +67,7 @@ function Home() {
       </header>
 
       <main>
-        <div className="toAdd">
+        <div className="toAdd w3-third">
           <header>
             <h2>Adicionar Nova Tarefa</h2>
           </header>
@@ -79,7 +78,7 @@ function Home() {
           </div>
         </div>
 
-      <div className="todo">
+      <div className="todo w3-third">
           <header>
             <h2>A fazer</h2>
           </header>
@@ -104,7 +103,7 @@ function Home() {
           </ul>
       </div>
             
-      <div className="done">
+      <div className="done w3-third">
           <header>
             <h2>Feito</h2>
           </header>
