@@ -62,7 +62,7 @@ export const Container = styled.div`
       background: #999;
     }
   }
-    .block .login a {
+      .block .login a {
     text-decoration: none;
     text-align: center;
 

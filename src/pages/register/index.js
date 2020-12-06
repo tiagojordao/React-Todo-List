@@ -6,7 +6,7 @@ import { Container } from './styles';
 
 import { Link } from 'react-router-dom';
 
-export default function Auth() {
+export default function Register() {
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -18,24 +18,24 @@ export default function Auth() {
     }
     const response = await axios({
         method: 'POST',
-        url: 'http://localhost:3333/auth',
+        url: 'http://localhost:3333/cadastro',
         data: body
     })
 
     if(response.status){
-      window.location.replace("/user");
+      window.location.replace("/");
     }
   }
 
   return (
     <Container>
       <div className="block">
-        <h2>Todo List Login</h2>
+        <h2>Todo List Registro</h2>
         <div className="login">
           <input id="email" type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
           <input id="password" type="password" placeholder="Senha" value={senha} onChange={e => setSenha(e.target.value)}/>
-          <button type="submit" onClick={handleSubmit}>ENTRAR</button>
-          <Link to="/cadastro">CADASTRO</Link>
+          <button type="submit" onClick={handleSubmit}>REGISTRAR</button>
+          <Link to="/">VOLTAR</Link>
         </div>
       </div>
     </Container>
