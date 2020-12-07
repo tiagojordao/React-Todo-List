@@ -10,20 +10,27 @@ export default function Register() {
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [rwSenha, setRwSenha] = useState('');
 
   async function handleSubmit () {
     var body = {
       email,
       senha
     }
-    const response = await axios({
-        method: 'POST',
-        url: 'http://localhost:3333/cadastro',
-        data: body
-    })
 
-    if(response.status){
-      window.location.replace("/");
+    if (senha !== rwSenha) {
+      alert('Senhas não concidem!');
+    }
+    else {
+      const response = await axios({
+          method: 'POST',
+          url: 'http://localhost:3333/cadastro',
+          data: body
+      })
+
+      if(response.status){
+        window.location.replace("/");
+      }
     }
   }
 
@@ -34,6 +41,7 @@ export default function Register() {
         <div className="login">
           <input id="email" type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
           <input id="password" type="password" placeholder="Senha" value={senha} onChange={e => setSenha(e.target.value)}/>
+          <input id="rewrite-password" type="password" placeholder="Digite a senha novamente" value={rwSenha} onChange={e => setRwSenha(e.target.value)}/>
           <button type="submit" onClick={handleSubmit}>REGISTRAR</button>
           <Link to="/">VOLTAR</Link>
         </div>

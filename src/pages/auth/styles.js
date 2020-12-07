@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
 
   .block {
-    background: rgba(255,255,255, 0.3);
+    background: rgba(255,255,255, 0.9);
     height: 50%;
     border-radius: 5px;
 

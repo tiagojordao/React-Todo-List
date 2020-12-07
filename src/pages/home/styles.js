@@ -20,19 +20,13 @@ export const Container = styled.div`
   }
 
   main {
-    /*
-    display: flex;
-    justify-content: center;
-    */
     height: 100%;
     margin-top: 32px;
 
     .toAdd {
       padding: 0 15px;
       height: 100%;
-      /*
-        flex: 0 0 350px;
-      */
+
       header {
         background: none;
         display: flex;
@@ -67,9 +61,7 @@ export const Container = styled.div`
     .todo {
       padding: 0 15px;
       height: 100%;
-      /*
-        flex: 0 0 400px;
-      */
+
       header {
         background: none;
         display: flex;
@@ -112,9 +104,7 @@ export const Container = styled.div`
     .done {
       padding: 0 15px;
       height: 100%;
-      /*
-        flex: 0 0 400px;
-      */
+
       header {
         background: none;
         display: flex;
@@ -156,7 +146,7 @@ export const Container = styled.div`
     }
   }
 
-  #tarefa, #responsavel {
+  #tarefa, #responsavel, #label {
     padding: 16px 0 16px 8px;
     width: 80%;
     margin: 8px 16px;

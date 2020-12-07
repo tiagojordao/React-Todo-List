@@ -9,6 +9,7 @@ import { Container, Label } from './styles';
 function Home() {
   const [task, setTask] = useState('');
   const [resp, setResp] = useState('');
+  const [label, setLabel] = useState('');
 
   const[tarefa, setTarefa] = useState([{}]);
 
@@ -16,14 +17,29 @@ function Home() {
     var body = {
       task,
       resp,
-      status: "em_andamento"
+      status: "em_andamento",
+      label,
     }
     const response = await axios({
         method: 'POST',
         url: 'http://localhost:3333/addnewtask',
         data: body
     })
-    setTarefa([...tarefa, body]);
+    
+    response.data.map ( r => {
+      if (r.label === 'Pessoal') {
+        r.label = 'blue';
+      }
+      else if (r.label === 'Profissional') {
+        r.label = 'red';
+      }
+      else if (r.label === 'Academico') {
+        r.label = 'green';
+      }
+    })
+
+    setTarefa(response.data);
+    // setTarefa([...tarefa, body]);
   }
   useEffect(() => {},[tarefa])
 
@@ -33,6 +49,19 @@ function Home() {
         method: 'GET',
         url: `http://localhost:3333`
       });
+
+      response.data.map ( r => {
+        if (r.label === 'Pessoal') {
+          r.label = 'blue';
+        }
+        else if (r.label === 'Profissional') {
+          r.label = 'red';
+        }
+        else if (r.label === 'Academico') {
+          r.label = 'green';
+        }
+      })
+
       setTarefa(tarefa => response.data);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
@@ -43,6 +72,18 @@ function Home() {
       url: `http://localhost:3333/deletetask/${taskToDelete}`
     }); 
 
+    response.data.map ( r => {
+      if (r.label === 'Pessoal') {
+        r.label = 'blue';
+      }
+      else if (r.label === 'Profissional') {
+        r.label = 'red';
+      }
+      else if (r.label === 'Academico') {
+        r.label = 'green';
+      }
+    })
+
     setTarefa(response.data);
   };
 
@@ -52,6 +93,18 @@ function Home() {
         url: `http://localhost:3333/checktask/${taskToCheck}`
       });
 
+      response.data.map ( r => {
+        if (r.label === 'Pessoal') {
+          r.label = 'blue';
+        }
+        else if (r.label === 'Profissional') {
+          r.label = 'red';
+        }
+        else if (r.label === 'Academico') {
+          r.label = 'green';
+        }
+      })
+
       setTarefa(response.data);
   };
 
@@ -59,11 +112,6 @@ function Home() {
     <Container className="w3-col">
       <header>
         <h1>Web Todo List</h1>
-        {/* <div className="tabs">
-          <button>Pessoal</button>
-          <button>Profissional</button>
-          <button>Academico</button>
-        </div> */}
       </header>
 
       <main>
@@ -74,6 +122,7 @@ function Home() {
           <div className="newTask">
             <input id="tarefa" type="text" value={task} placeholder="Tarefa" onChange={e => setTask(e.target.value)}/>
             <input id="responsavel" type="text" value={resp} placeholder="Responsável" onChange={e => setResp(e.target.value)}/>
+            <input id="label" type="text" value={label} placeholder="Label" onChange={e => setLabel(e.target.value)}/>
             <input id="submitButton" type="button" value="Adicionar"onClick={handleSubmit}/>
           </div>
         </div>
@@ -87,7 +136,7 @@ function Home() {
                 <li key={tarefa.nome}>
                   <div className="todoBlock">
                   <header>
-                    <Label color="blue" />
+                    <Label color={tarefa.label} />
                   </header>
                     <div>
                       <p>Tarefa:</p> {tarefa.task}<br/>
@@ -112,7 +161,7 @@ function Home() {
                 <li key={tarefa.nome}>
                   <div className="doneBlock">
                     <header>
-                      <Label color="blue" />
+                      <Label color={tarefa.label} />
                     </header>
                     <div>
                       <p>Tarefa:</p> {tarefa.task}<br/>
